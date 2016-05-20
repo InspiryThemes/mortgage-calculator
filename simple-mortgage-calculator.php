@@ -23,7 +23,7 @@ class simple_mortgage_calculator extends WP_Widget {
     public function __construct() {
         parent::__construct(
 
-        // Base ID of your widget
+            // Base ID of your widget
             'simple-mortgage-calculator',
 
             // Widget name will appear in UI
@@ -34,8 +34,7 @@ class simple_mortgage_calculator extends WP_Widget {
     }
 
 
-    // Creating widget front-end
-    // This is where the action happens.
+    // Creating widget front-end - This is where the action happens.
     public function widget( $args, $instance ) {
         $title                     = apply_filters( 'widget_title', $instance['title'] );
 
@@ -56,28 +55,25 @@ class simple_mortgage_calculator extends WP_Widget {
             <form id="smcf-form" action="#smcf-form">
                 <p>
                     <label for="smcf-total-amount">Total Amount</label>
-                    <input type="number" id="smcf-total-amount" placeholder="$">
+                    <input type="number" name="totalamount" id="smcf-total-amount" min="1" class="required" placeholder="$"/>
                 </p>
                 <p>
                     <label for="smcf-down-payment">Down Payment</label>
-                    <input type="number" id="smcf-down-payment" placeholder="$">
+                    <input type="number" name="downpayment" id="smcf-down-payment" min="1" class="required" placeholder="$">
                 </p>
                 <p>
                     <label for="smcf-interest-rate">Interest Rate</label>
-                    <input type="number" id="smcf-interest-rate" placeholder="%">
+                    <input type="number" name="interestrate" id="smcf-interest-rate" min="1" class="required" placeholder="%">
                 </p>
                 <p>
                     <label for="smcf-amortization-period">Amortization Period</label>
-                    <input type="number" id="smcf-amortization-period" placeholder="Years">
-                </p>
-                <p>
-                    <label for="smcf-period">Payment Period</label>
-                    <input type="text" id="smcf-period" value="Monthly">
+                    <input type="number" name="authperiod" id="smcf-amortization-period" class="required" placeholder="Years">
                 </p>
                 <p>
                     <input type="submit" id="smcf-submit" value="Calculate">
                 </p>
             </form>
+            <div id="error-container"></div>
             <div id="smcf-output" class="clearfix"></div>
         </div>
 
@@ -86,7 +82,7 @@ class simple_mortgage_calculator extends WP_Widget {
 
     // Widget Backend
     public function form( $instance ) {
-        $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Calculate Mortgage Payments', 'smc' );
+        $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Monthly Mortgage Payments', 'smc' );
         ?>
         <p>
             <label for="<?php echo $this->get_field_id( 'title' ); ?>">
@@ -119,7 +115,7 @@ class simple_mortgage_calculator extends WP_Widget {
 }//End Class  Simple Mortgage Calculator
 
 
- //Register Simple Mortgage Calculator
+//Register Simple Mortgage Calculator
 
 function register_simple_mortgage_calculator() {
     register_widget( 'simple_mortgage_calculator' );
@@ -147,8 +143,9 @@ defined( 'SMC_URL' ) or define( 'SMC_URL', smc_url() );
 //Load plugin Scripts
 function simple_mortgage_calculator_scripts()
 {
-   // wp_enqueue_script( 'lidd_mc', SMC_URL . 'js/jquery.min.js', 'jquery', "2.1.1", false );
-    wp_enqueue_script( 'lidd_mc', SMC_URL . 'js/smc-custom.js', 'jquery', "1.0", true );
+    wp_enqueue_script( 'smc_form', SMC_URL . 'js/jquery.form.min.js', 'jquery', "3.51", true );
+    wp_enqueue_script( 'smc_validate', SMC_URL . 'js/jquery.validate.min.js', 'jquery', "1.15", true );
+    wp_enqueue_script( 'smc_custom', SMC_URL . 'js/smc-custom.js', 'jquery', "1.0", true );
 
 }
 add_action( 'wp_enqueue_scripts', 'simple_mortgage_calculator_scripts' );
