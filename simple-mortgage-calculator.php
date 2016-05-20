@@ -23,7 +23,7 @@ class simple_mortgage_calculator extends WP_Widget {
     public function __construct() {
         parent::__construct(
 
-            // Base ID of your widget
+        // Base ID of your widget
             'simple-mortgage-calculator',
 
             // Widget name will appear in UI
@@ -36,7 +36,7 @@ class simple_mortgage_calculator extends WP_Widget {
 
     // Creating widget front-end - This is where the action happens.
     public function widget( $args, $instance ) {
-        $title                     = apply_filters( 'widget_title', $instance['title'] );
+        $title  = apply_filters( 'widget_title', $instance['title'] );
 
         // before and after widget arguments are defined by themes
         echo $args['before_widget'];
@@ -73,8 +73,8 @@ class simple_mortgage_calculator extends WP_Widget {
                     <input type="submit" id="smcf-submit" value="Calculate">
                 </p>
             </form>
-            <div id="error-container"></div>
-            <div id="smcf-output" class="clearfix"></div>
+            <div id="smcf-output" class="clearfix">
+            </div>
         </div>
 
         <?php echo $args['after_widget'];
@@ -143,6 +143,7 @@ defined( 'SMC_URL' ) or define( 'SMC_URL', smc_url() );
 //Load plugin Scripts
 function simple_mortgage_calculator_scripts()
 {
+    wp_enqueue_style( 'smc_css', SMC_URL . 'css/main.css', '', '1.0', 'screen'  );
     wp_enqueue_script( 'smc_form', SMC_URL . 'js/jquery.form.min.js', 'jquery', "3.51", true );
     wp_enqueue_script( 'smc_validate', SMC_URL . 'js/jquery.validate.min.js', 'jquery', "1.15", true );
     wp_enqueue_script( 'smc_custom', SMC_URL . 'js/smc-custom.js', 'jquery', "1.0", true );
