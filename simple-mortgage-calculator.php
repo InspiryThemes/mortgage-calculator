@@ -4,7 +4,7 @@
  * Plugin URI:        https://github.com/InspiryThemes/mortgage-calculator
  * Description:       It is a very Simple calculator for Mortgage Calculations.
  * Version:           1.0.0
- * Author:
+ * Author:            Sungraiz Faryad
  * Author URI:
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -14,7 +14,6 @@
 
 // Make sure the plugin is accessed through the appropriate channels
 defined('ABSPATH') || die;
-
 
 class simple_mortgage_calculator extends WP_Widget {
 
@@ -73,7 +72,9 @@ class simple_mortgage_calculator extends WP_Widget {
                     <input type="submit" id="smcf-submit" value="Calculate">
                 </p>
             </form>
+            
             <div id="smcf-output" class="clearfix">
+               
             </div>
         </div>
 
@@ -95,14 +96,7 @@ class simple_mortgage_calculator extends WP_Widget {
         <?php
     }
 
-    /**
-     * Sanitize widget form values as they are saved.
-     * @see WP_Widget::update()
-     * @param array $new_instance Values just sent to be saved.
-     * @param array $old_instance Previously saved values from database.
-     * @return array Updated safe values to be saved.
-     */
-
+    // Sanitize widget form values as they are saved.
     public function update( $new_instance, $old_instance ) {
         $instance = array();
 
@@ -112,20 +106,18 @@ class simple_mortgage_calculator extends WP_Widget {
     }
 
 
-}//End Class  Simple Mortgage Calculator
+}
+//End Class  Simple Mortgage Calculator
 
 
 //Register Simple Mortgage Calculator
-
 function register_simple_mortgage_calculator() {
     register_widget( 'simple_mortgage_calculator' );
 }
-
 add_action( 'widgets_init', 'register_simple_mortgage_calculator' );
 
 
 //Load plugin text domain.
-
 function smc_load_textdomain() {
     load_plugin_textdomain( 'smc', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
 }
@@ -140,11 +132,11 @@ function smc_url() {
 }
 defined( 'SMC_URL' ) or define( 'SMC_URL', smc_url() );
 
+
 //Load plugin Scripts
 function simple_mortgage_calculator_scripts()
 {
     wp_enqueue_style( 'smc_css', SMC_URL . 'css/main.css', '', '1.0', 'screen'  );
-    wp_enqueue_script( 'smc_form', SMC_URL . 'js/jquery.form.min.js', 'jquery', "3.51", true );
     wp_enqueue_script( 'smc_validate', SMC_URL . 'js/jquery.validate.min.js', 'jquery', "1.15", true );
     wp_enqueue_script( 'smc_custom', SMC_URL . 'js/smc-custom.js', 'jquery', "1.0", true );
 

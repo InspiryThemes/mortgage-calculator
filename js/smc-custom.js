@@ -1,53 +1,52 @@
 (function ($) {
 
     'use strict';
-
+    // Restrict output to 2 digits after point
     function numberFormat(val, decimalPlaces) {
 
         var multiplier = Math.pow(10, decimalPlaces);
         return (Math.round(val * multiplier) / multiplier).toFixed(decimalPlaces);
     }
 
+    //Main output Function
     function smcFuncOutput(){
 
-        var smcfTaVal = $("#smcf-total-amount").val(),
-            smcfDpVal = $("#smcf-down-payment").val(),
-            smcfIrVal = $("#smcf-interest-rate").val(),
-            smcfApVal = $("#smcf-amortization-period").val();
+        // Getting input values
+        var outputDiv = $("#smcf-output"),
+            smcfTaVal = Number( $("#smcf-total-amount").val() ),
+            smcfDpVal = Number( $("#smcf-down-payment").val() ),
+            smcfIrVal = Number( $("#smcf-interest-rate").val() ),
+            smcfApVal = Number( $("#smcf-amortization-period").val() );
 
-        var i = smcfIrVal/1200,
-            mortgage = smcfTaVal - smcfDpVal,
-            power = Math.pow((1+i), (smcfApVal*12)),
-            totalMortgage = (smcfTaVal - smcfDpVal)*( (i*power)/(power-1) ),
-            tmwi = totalMortgage*smcfApVal*12,
-            tmwdp = tmwi+parseInt(smcfDpVal);
+        //Calculating interest by this formula interest/(months*100)
+        var interest = smcfIrVal/1200;
 
+        //Calculating mortgage by subtracting Down Payment from Total Amount
+        var mortgage = smcfTaVal - smcfDpVal;
 
-        $("#smcf-output").html("<p>For a mortgage of $"+mortgage+" amortized over "+smcfIrVal+" years, your Monthly payment is:</p>" +
+        // Power calculating by this formula Math.pow(base, exponent)
+        var power = Math.pow((1+interest), (smcfApVal*12));
+
+        // Calculating total mortgage
+        var totalMortgage =  mortgage*(interest*power)/(power-1);
+
+        //Total Mortgage with Interest
+        var tmwi = totalMortgage*smcfApVal*12;
+
+        //Total with Down Payment
+        var tmwdp = tmwi+smcfDpVal;
+
+        outputDiv.stop(true, true).slideDown();
+
+        outputDiv.html("<p>For a mortgage of $"+mortgage+" amortized over "+smcfIrVal+" years, your Monthly payment is:</p>" +
             "<p>Mortgage Payment: $"+numberFormat(totalMortgage, 2)+"</p>" +
-            "<p>Total Mortgage with Interest: $"+numberFormat(tmwi,2)+"</p>" +
-            "<p>Total with Down Payment: $"+numberFormat(tmwdp,2)+"</p>");
+            "<p>Total Mortgage with Interest: $"+numberFormat(tmwi, 2)+"</p>" +
+            "<p>Total with Down Payment: $"+numberFormat(tmwdp, 2)+"</p>");
     }
 
 
-    /*----------------------------------------------------------------------------------*/
-    /* Contact Form AJAX validation and submission
-     /* Validation Plugin : http://bassistance.de/jquery-plugins/jquery-plugin-validation/
-     /* Form Ajax Plugin : http://www.malsup.com/jquery/form/
-     /*---------------------------------------------------------------------------------- */
-
-    if (jQuery().validate && jQuery().ajaxSubmit) {
-        var submitButton = $('#smcf-submit');
-        var formOptions = {
-            beforeSubmit: function () {
-                submitButton.attr('disabled', 'disabled');
-            },
-            success: function () {
-                submitButton.removeAttr('disabled');
-                smcFuncOutput();
-            }
-        };
-
+    // Form validation and submission
+    if ( jQuery().validate ) {
         $("#smcf-form").validate({
             rules: {
                 field: {
@@ -55,9 +54,10 @@
                     min:0
                 }
             },
-            submitHandler: function (form) {
-                $(form).ajaxSubmit(formOptions);
+            submitHandler: function() {
+                smcFuncOutput();
             }
         });
     }
+
 })(jQuery);

@@ -35,3 +35,6 @@
 .smcf-wrapper p{
     margin-bottom: 20px;
 }
+#smcf-output{
+    display: none;
+}
