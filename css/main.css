@@ -1,18 +1,18 @@
-.smcf-wrapper{
+.mc-wrapper{
     font-family: inherit;
     font-size: 14px;
 }
-.smcf-wrapper label.error{
+.mc-wrapper label.error{
     color: #ff0000;
     margin-top: 5px;
     display: block;
 }
-.smcf-wrapper label{
+.mc-wrapper label{
     color: inherit;
     margin-bottom: 5px;
     display: block;
 }
-.smcf-wrapper input{
+.mc-wrapper input{
     width: 100%;
     padding: 19px 10px;
     height: 40px;
@@ -20,21 +20,21 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.smcf-wrapper input[type = "submit"]{
+.mc-wrapper input[type = "submit"]{
     width: auto;
     padding: 12px 20px;
     border: none;
     box-shadow: none;
     cursor: pointer;
 }
-.smcf-wrapper input,
-.smcf-wrapper input:focus,
-.smcf-wrapper input:active{
+.mc-wrapper input,
+.mc-wrapper input:focus,
+.mc-wrapper input:active{
     outline: none;
 }
-.smcf-wrapper p{
+.mc-wrapper p{
     margin-bottom: 20px;
 }
-#smcf-output{
+#mc-output{
     display: none;
 }

@@ -9,36 +9,40 @@
     }
 
     //Main output Function
-    function smcFuncOutput(){
+    function mcFuncOutput(){
 
         // Getting input values
-        var outputDiv = $("#smcf-output"),
-            smcfTaVal = Number( $("#smcf-total-amount").val() ),
-            smcfDpVal = Number( $("#smcf-down-payment").val() ),
-            smcfIrVal = Number( $("#smcf-interest-rate").val() ),
-            smcfApVal = Number( $("#smcf-amortization-period").val() );
+        var outputDiv = $("#mc-output"),
 
-        //Calculating interest by this formula interest/(months*100)
-        var interest = smcfIrVal/1200;
+            mcTotalAmount = Number( $("#mc-total-amount").val() ),
 
-        //Calculating mortgage by subtracting Down Payment from Total Amount
-        var mortgage = smcfTaVal - smcfDpVal;
+            mcDownPayment = Number( $("#mc-down-payment").val() ),
+
+            mcInterestRate = Number( $("#mc-interest-rate").val() ),
+
+            mcAmortizationPeriod = Number( $("#mc-amortization-period").val() );
+
+        //Calculating r by this formula r/(months*100)
+        var r = mcInterestRate/1200;
+
+        //Calculating principal Amount by subtracting Down Payment from Total Amount
+        var principal = mcTotalAmount - mcDownPayment;
 
         // Power calculating by this formula Math.pow(base, exponent)
-        var power = Math.pow((1+interest), (smcfApVal*12));
+        var power = Math.pow((1+r), (mcAmortizationPeriod*12));
 
         // Calculating total mortgage
-        var totalMortgage =  mortgage*(interest*power)/(power-1);
+        var totalMortgage =  principal*(r*power)/(power-1);
 
         //Total Mortgage with Interest
-        var tmwi = totalMortgage*smcfApVal*12;
+        var tmwi = totalMortgage*mcAmortizationPeriod*12;
 
         //Total with Down Payment
-        var tmwdp = tmwi+smcfDpVal;
+        var tmwdp = tmwi+mcDownPayment;
 
         outputDiv.stop(true, true).slideDown();
 
-        outputDiv.html("<p>For a mortgage of $"+mortgage+" amortized over "+smcfIrVal+" years, your Monthly payment is:</p>" +
+        outputDiv.html("<p>For a mortgage of $"+principal+" amortized over "+mcAmortizationPeriod+" years, your Monthly payment is:</p>" +
             "<p>Mortgage Payment: $"+numberFormat(totalMortgage, 2)+"</p>" +
             "<p>Total Mortgage with Interest: $"+numberFormat(tmwi, 2)+"</p>" +
             "<p>Total with Down Payment: $"+numberFormat(tmwdp, 2)+"</p>");
@@ -47,7 +51,7 @@
 
     // Form validation and submission
     if ( jQuery().validate ) {
-        $("#smcf-form").validate({
+        $("#mc-form").validate({
             rules: {
                 field: {
                     number: true,
@@ -55,7 +59,7 @@
                 }
             },
             submitHandler: function() {
-                smcFuncOutput();
+                mcFuncOutput();
             }
         });
     }
