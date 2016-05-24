@@ -80,9 +80,9 @@ class MC_Mortgage_Calculator extends WP_Widget {
                     <input type="submit" id="mc-submit" value="<?php _e('Calculate', 'mc'); ?>">
                 </p>
             </form>
-            
+
             <div id="mc-output" class="clearfix">
-               
+
             </div>
         </div>
 
@@ -144,6 +144,27 @@ function mc_load_textdomain() {
 
 add_action( 'plugins_loaded', 'mc_load_textdomain' );
 
+
+/**
+ * Localize the script with new data
+ */
+function mc_get_localization(){
+
+    $localization = array(
+
+        'mc_output_string' => sprintf(
+            __( 'For a mortgage of %1$s amortized over %2$s years, your Monthly payment is: <br> Mortgage Payment: %3$s <br>Total Mortgage with Interest: %4$s <br>Total with Down Payment: %5$s', 'mc' ),
+            '[mortgage_amount]',
+            '[amortization_years]',
+            '[mortgage_payment]',
+            '[total_mortgage_interest]',
+            '[total_mortgage_down_payment]'
+        )
+    );
+    return $localization;
+}
+
+
 /**
  * Load plugin Scripts
  */
@@ -153,6 +174,17 @@ function mortgage_calculator_scripts()
     wp_enqueue_style( 'mc_css', $mc_url. 'css/main.css', '', MORTGAGE_CALCULATOR_VERSION, 'screen'  );
     wp_enqueue_script( 'mc_validate',$mc_url. 'js/jquery.validate.min.js', array('jquery'), MORTGAGE_CALCULATOR_VERSION, true );
     wp_enqueue_script( 'mc_custom', $mc_url. 'js/mc-custom.js', array('jquery', 'mc_validate'), MORTGAGE_CALCULATOR_VERSION, true );
-
+    mc_localize_script();
 }
 add_action( 'wp_enqueue_scripts', 'mortgage_calculator_scripts' );
+
+/**
+ * Localize JavaScript
+ */
+function mc_localize_script() {
+
+    $localization = mc_get_localization();
+
+    wp_localize_script( 'mc_custom', 'mc_strings', $localization );
+}
+

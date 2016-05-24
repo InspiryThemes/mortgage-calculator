@@ -34,6 +34,7 @@
 }
 .mc-wrapper p{
     margin-bottom: 20px;
+    line-height: 30px;
 }
 #mc-output{
     display: none;

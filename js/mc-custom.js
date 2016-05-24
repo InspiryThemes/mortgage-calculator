@@ -9,18 +9,22 @@
     }
 
     //Main output Function
-    function mcFuncOutput(){
+    function mcOutputFunc(){
 
         // Getting input values
-        var outputDiv = $("#mc-output"),
+        var outputDiv = $("#mc-output");
 
-            mcTotalAmount = Number( $("#mc-total-amount").val() ),
+        // Getting total amount value from user
+        var mcTotalAmount = Number( $("#mc-total-amount").val() );
 
-            mcDownPayment = Number( $("#mc-down-payment").val() ),
+        //Getting Down Payment value from user
+        var mcDownPayment = Number( $("#mc-down-payment").val() );
 
-            mcInterestRate = Number( $("#mc-interest-rate").val() ),
+        //Getting Interest Rate value from user
+        var mcInterestRate = Number( $("#mc-interest-rate").val() );
 
-            mcAmortizationPeriod = Number( $("#mc-amortization-period").val() );
+        //Getting Amortization period value from user
+        var mcAmortizationPeriod = Number( $("#mc-amortization-period").val() );
 
         //Calculating r by this formula r/(months*100)
         var r = mcInterestRate/1200;
@@ -40,12 +44,21 @@
         //Total with Down Payment
         var tmwdp = tmwi+mcDownPayment;
 
-        outputDiv.stop(true, true).slideDown();
+       // Getting Localize php strings
+        var outPutString = mc_strings.mc_output_string;
 
-        outputDiv.html("<p>For a mortgage of $"+principal+" amortized over "+mcAmortizationPeriod+" years, your Monthly payment is:</p>" +
-            "<p>Mortgage Payment: $"+numberFormat(totalMortgage, 2)+"</p>" +
-            "<p>Total Mortgage with Interest: $"+numberFormat(tmwi, 2)+"</p>" +
-            "<p>Total with Down Payment: $"+numberFormat(tmwdp, 2)+"</p>");
+        //currency sign
+        var mcCurrencySign = "$";
+
+        outPutString = outPutString.replace( "[mortgage_amount]", mcCurrencySign+principal );
+        outPutString = outPutString.replace( "[amortization_years]", mcAmortizationPeriod );
+        outPutString = outPutString.replace( "[mortgage_payment]", mcCurrencySign+numberFormat(totalMortgage, 2) );
+        outPutString = outPutString.replace( "[total_mortgage_interest]", mcCurrencySign+numberFormat(tmwi, 2) );
+        outPutString = outPutString.replace( "[total_mortgage_down_payment]", mcCurrencySign+numberFormat(tmwdp, 2) );
+
+        outputDiv.html( "<p>"+outPutString+"</p>");
+        
+        outputDiv.stop(true, true).slideDown();
     }
 
 
@@ -59,7 +72,7 @@
                 }
             },
             submitHandler: function() {
-                mcFuncOutput();
+                mcOutputFunc();
             }
         });
     }
