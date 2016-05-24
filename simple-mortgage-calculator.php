@@ -1,15 +1,15 @@
 <?php
 /**
- * Plugin Name:      Simple Mortgage Calculator
- * Plugin URI:        https://github.com/InspiryThemes/mortgage-calculator
- * Description:       It is a very Simple calculator for Mortgage Calculations.
- * Version:           1.0.0
- * Author:            Sungraiz Faryad
- * Author URI:
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       smc
- * Domain Path:       /languages
+ * Plugin Name:     Mortgage Calculator
+ * Plugin URI:      https://github.com/InspiryThemes/mortgage-calculator
+ * Description:     It provides an easy to use mortgage calculator widget
+ * Version:         1.0.0
+ * Author:          Inspiry Themes
+ * Author URI:      http://inspirythemes.com/
+ * License:         GPL-2.0+
+ * License URI:     http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain:     smc
+ * Domain Path:     /languages
  */
 
 // Make sure the plugin is accessed through the appropriate channels
