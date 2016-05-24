@@ -1,0 +1,61 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Text in echo
+#: mortgage-calculator/mortgage-calculator.php:65
+#: mortgage-calculator/mortgage-calculator.php:69
+#: mortgage-calculator/mortgage-calculator.php:73
+msgid "%"
+msgstr ""
+
+#. Text in echo
+#: mortgage-calculator/mortgage-calculator.php:76
+msgid "Amortization Period"
+msgstr ""
+
+#. Text in echo
+#: mortgage-calculator/mortgage-calculator.php:80
+msgid "Calculate"
+msgstr ""
+
+#. Text in echo
+#: mortgage-calculator/mortgage-calculator.php:68
+msgid "Down Payment"
+msgstr ""
+
+#. Text in echo
+#: mortgage-calculator/mortgage-calculator.php:72
+msgid "Interest Rate"
+msgstr ""
+
+#. Text in function
+#: mortgage-calculator/mortgage-calculator.php:1
+msgid "It provides an easy to use mortgage calculator widget."
+msgstr ""
+
+#. Text in function
+#: mortgage-calculator/mortgage-calculator.php:89
+msgid "Monthly Mortgage Payments"
+msgstr ""
+
+#. Text in function
+#: mortgage-calculator/mortgage-calculator.php:1
+msgid "Mortgage Calculator"
+msgstr ""
+
+#. Text in function
+#: mortgage-calculator/mortgage-calculator.php:101
+msgid "Title"
+msgstr ""
+
+#. Text in echo
+#: mortgage-calculator/mortgage-calculator.php:64
+msgid "Total Amount"
+msgstr ""
+
+#. Text in echo
+#: mortgage-calculator/mortgage-calculator.php:77
+msgid "Years"
+msgstr ""
