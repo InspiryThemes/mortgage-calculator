@@ -44,7 +44,7 @@ class MC_Mortgage_Calculator extends WP_Widget {
      */
     public function widget( $args, $instance ) {
         $title               = apply_filters( 'widget_title', $instance['title'] );
-        $mc_total_amount     =  $instance['mc_total_amount'];
+        $mc_total_amount     = $instance['mc_total_amount'];
         $mc_down_payment     = $instance['mc_down_payment'];
         $mc_interest_rate    = $instance['mc_interest_rate'];
         $mc_mortgage_period  = $instance['mc_mortgage_period'];
