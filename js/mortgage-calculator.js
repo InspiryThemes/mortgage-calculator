@@ -59,6 +59,7 @@
 
         //Displaying output div
         outputDiv.html( "<p>"+outPutString+"</p>").stop(true, true).slideDown();
+        outputDiv.html(outputDiv.html().replace(new RegExp("LINEBREAK","g"),"<br>"));
     }
 
 

@@ -68,7 +68,7 @@ class MC_Mortgage_Calculator extends WP_Widget {
                 </p>
                 <p>
                     <label for="mc-interest-rate"><?php echo $mc_interest_rate; ?></label>
-                    <input type="number" name="mc_interest_rate" id="mc-interest-rate" min="1" class="required" placeholder="<?php _e( '$', 'mc' ); ?>">
+                    <input type="number" name="mc_interest_rate" id="mc-interest-rate" min="1" class="required" placeholder="<?php _e( '%', 'mc' ); ?>">
                 </p>
                 <p>
                     <label for="mc-mortgage-period"><?php echo $mc_mortgage_period; ?></label>
@@ -203,12 +203,13 @@ function mc_localization_strings(){
     $localization = array(
 
         'mc_output_string' => sprintf(
-            __( 'Mortgage of %1$s over %2$s years mortgage period, Your monthly payment in USD is: <br> Mortgage payment is: %3$s <br>Total mortgage with interest is: %4$s <br>Total mortgage with down payment is: %5$s', 'mc' ),
+            __( 'Mortgage: %1$s %6$s Years: %2$s %6$s Monthly payment: %3$s %6$s Total with interest: %4$s %6$s Total with down payment: %5$s', 'mc' ),
             '[mortgage_amount]',
             '[amortization_years]',
             '[mortgage_payment]',
             '[total_mortgage_interest]',
-            '[total_mortgage_down_payment]'
+            '[total_mortgage_down_payment]',
+            'LINEBREAK'
         )
     );
     return $localization;
