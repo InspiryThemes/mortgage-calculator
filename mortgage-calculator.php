@@ -28,18 +28,12 @@ class MC_Mortgage_Calculator extends WP_Widget {
     /**
      * Register widget with WordPress.
      */
-
     public function __construct() {
         parent::__construct(
-
-        // Base ID of your widget
             'mortgage-calculator',
-
-            // Widget name will appear in UI
             __( 'Mortgage Calculator', 'mc' ),
-
-            // Widget description
-            array ( 'description' => __( 'It provides an easy to use mortgage calculator widget.', 'mc' ) ) );
+            array ( 'description' => __( 'It provides an easy to use mortgage calculator widget.', 'mc' ) )
+        );
     }
 
 
