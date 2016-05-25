@@ -55,29 +55,28 @@ class MC_Mortgage_Calculator extends WP_Widget {
         <div class="mc-wrapper clearfx">
             <form id="mc-form" action="#mc-form">
                 <p>
-                    <label for="mc-total-amount"><?php _e("Total Amount", "mc"); ?></label>
-                    <input type="number" name="mc_total_amount" id="mc-total-amount" min="1" class="required" placeholder="<?php _e('%', 'mc'); ?>"/>
+                    <label for="mc-total-amount"><?php _e( 'Total Amount', 'mc' ); ?></label>
+                    <input type="number" name="mc_total_amount" id="mc-total-amount" min="1" class="required" placeholder="<?php _e( '$', 'mc' ); ?>"/>
                 </p>
                 <p>
-                    <label for="mc-down-payment"><?php _e("Down Payment", "mc"); ?></label>
-                    <input type="number" name="mc_down_payment" id="mc-down-payment" min="1" class="required" placeholder="<?php _e('%', 'mc'); ?>">
+                    <label for="mc-down-payment"><?php _e( 'Down Payment', 'mc' ); ?></label>
+                    <input type="number" name="mc_down_payment" id="mc-down-payment" min="1" class="required" placeholder="<?php _e( '$', 'mc' ); ?>">
                 </p>
                 <p>
-                    <label for="mc-interest-rate"><?php _e("Interest Rate", "mc"); ?></label>
-                    <input type="number" name="mc_interest_rate" id="mc-interest-rate" min="1" class="required" placeholder="<?php _e('%', 'mc'); ?>">
+                    <label for="mc-interest-rate"><?php _e( 'Interest Rate', 'mc' ); ?></label>
+                    <input type="number" name="mc_interest_rate" id="mc-interest-rate" min="1" class="required" placeholder="<?php _e( '$', 'mc' ); ?>">
                 </p>
                 <p>
-                    <label for="mc-amortization-period"><?php _e("Amortization Period", "mc"); ?></label>
-                    <input type="number" name="mc_amortization_period" id="mc-amortization-period" class="required" placeholder="<?php _e('Years', 'mc'); ?>">
+                    <label for="mc-mortgage-period"><?php _e( 'Mortgage Period', 'mc' ); ?></label>
+                    <input type="number" name="mc_mortgage_period" id="mc-mortgage-period" class="required" placeholder="<?php _e( 'Years', 'mc' ); ?>">
                 </p>
                 <p>
-                    <input type="submit" id="mc-submit" value="<?php _e('Calculate', 'mc'); ?>">
+                    <input type="submit" id="mc-submit" value="<?php _e( 'Calculate Mortgage', 'mc' ); ?>">
                 </p>
             </form>
 
-            <div id="mc-output" class="clearfix">
-
-            </div>
+            <!-- This div is holding output values-->
+            <div id="mc-output" class="clearfix"></div>
         </div>
 
         <?php echo $args['after_widget'];
@@ -116,17 +115,16 @@ class MC_Mortgage_Calculator extends WP_Widget {
     }
 
 
-}
-//End Class Mortgage Calculator
+}//End Class Mortgage Calculator
 
 
 /**
  * Register Mortgage Calculator
  */
-function register_mortgage_calculator() {
+function mc_register_mortgage_calculator() {
     register_widget( 'MC_Mortgage_Calculator' );
 }
-add_action( 'widgets_init', 'register_mortgage_calculator' );
+add_action( 'widgets_init', 'mc_register_mortgage_calculator' );
 
 
 /**
@@ -135,19 +133,18 @@ add_action( 'widgets_init', 'register_mortgage_calculator' );
 function mc_load_textdomain() {
     load_plugin_textdomain( 'mc', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
 }
-
 add_action( 'plugins_loaded', 'mc_load_textdomain' );
 
 
 /**
  * Localize the script with new data
  */
-function mc_get_localization(){
+function mc_localization_strings(){
 
     $localization = array(
 
         'mc_output_string' => sprintf(
-            __( 'For a mortgage of %1$s amortized over %2$s years, your Monthly payment is: <br> Mortgage Payment: %3$s <br>Total Mortgage with Interest: %4$s <br>Total with Down Payment: %5$s', 'mc' ),
+            __( 'Mortgage of %1$s over %2$s years mortgage period, Your monthly payment in USD is: <br> Mortgage payment is: %3$s <br>Total mortgage with interest is: %4$s <br>Total mortgage with down payment is: %5$s', 'mc' ),
             '[mortgage_amount]',
             '[amortization_years]',
             '[mortgage_payment]',
@@ -165,20 +162,31 @@ function mc_get_localization(){
 function mortgage_calculator_scripts()
 {
     $mc_url = plugin_dir_url( __FILE__ );
-    wp_enqueue_style( 'mc_css', $mc_url. 'css/main.css', '', MORTGAGE_CALCULATOR_VERSION, 'screen'  );
-    wp_enqueue_script( 'mc_validate',$mc_url. 'js/jquery.validate.min.js', array('jquery'), MORTGAGE_CALCULATOR_VERSION, true );
-    wp_enqueue_script( 'mc_custom', $mc_url. 'js/mc-custom.js', array('jquery', 'mc_validate'), MORTGAGE_CALCULATOR_VERSION, true );
-    mc_localize_script();
+
+    wp_enqueue_style( 'mortgage-calculator',
+        $mc_url. 'css/main.css',
+        MORTGAGE_CALCULATOR_VERSION,
+        'screen'
+    );
+    
+    wp_enqueue_script( 'mortgage-calculator-validator',
+        $mc_url. 'js/jquery.validate.min.js',
+        array('jquery'),
+        MORTGAGE_CALCULATOR_VERSION,
+        true
+    );
+    
+    wp_enqueue_script( 'mortgage-calculator',
+        $mc_url. 'js/mortgage-calculator.js',
+        array('jquery', 'mortgage-calculator-validator'),
+        MORTGAGE_CALCULATOR_VERSION,
+        true
+    );
+
+    //Localizing Scripts
+    $localization = mc_localization_strings();
+    wp_localize_script( 'mortgage-calculator', 'mc_strings', $localization );
 }
 add_action( 'wp_enqueue_scripts', 'mortgage_calculator_scripts' );
 
-/**
- * Localize JavaScript
- */
-function mc_localize_script() {
-
-    $localization = mc_get_localization();
-
-    wp_localize_script( 'mc_custom', 'mc_strings', $localization );
-}
 
