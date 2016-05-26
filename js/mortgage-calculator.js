@@ -51,11 +51,11 @@
         //Currency sign
         var mcCurrencySign = "$";
 
-        outPutString = outPutString.replace( "[mortgage_amount]", mcCurrencySign+principal );
+        outPutString = outPutString.replace( "[mortgage_amount]", mcCurrencySign + principal );
         outPutString = outPutString.replace( "[amortization_years]", mcAmortizationPeriod );
-        outPutString = outPutString.replace( "[mortgage_payment]", mcCurrencySign+numberFormat( monthlyMortgage, 2 ) );
-        outPutString = outPutString.replace( "[total_mortgage_interest]", mcCurrencySign+numberFormat( tmwi, 2 ) );
-        outPutString = outPutString.replace( "[total_mortgage_down_payment]", mcCurrencySign+numberFormat( tmwdp, 2 ) );
+        outPutString = outPutString.replace( "[mortgage_payment]", mcCurrencySign + numberFormat( monthlyMortgage, 2 ) );
+        outPutString = outPutString.replace( "[total_mortgage_interest]", mcCurrencySign + numberFormat( tmwi, 2 ) );
+        outPutString = outPutString.replace( "[total_mortgage_down_payment]", mcCurrencySign + numberFormat( tmwdp, 2 ) );
 
         //Displaying output div
         outputDiv.html( "<p>"+outPutString+"</p>").stop(true, true).slideDown();
