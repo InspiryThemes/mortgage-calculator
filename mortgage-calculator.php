@@ -92,11 +92,11 @@ class MC_Mortgage_Calculator extends WP_Widget {
      * @param array $instance
      */
     public function form( $instance ) {
-        $title               = ! empty( $instance['title'] )              ? $instance['title']              : __( 'Monthly Mortgage Payments', 'mc' );
-        $mc_total_amount     = ! empty( $instance['mc_total_amount'] )    ? $instance['mc_total_amount']    : __( 'Total Amount', 'mc' );
-        $mc_down_payment     = ! empty( $instance['mc_down_payment'] )    ? $instance['mc_down_payment']    : __( 'Down Payment', 'mc' );
-        $mc_interest_rate    = ! empty( $instance['mc_interest_rate'] )   ? $instance['mc_interest_rate']   : __( 'Interest Rate', 'mc' );
-        $mc_mortgage_period  = ! empty( $instance['mc_mortgage_period'] ) ? $instance['mc_mortgage_period'] : __( 'Mortgage Period', 'mc' );
+        $title               = isset( $instance['title'] )              ? $instance['title']              : __( 'Monthly Mortgage Payments', 'mc' );
+        $mc_total_amount     = isset( $instance['mc_total_amount'] )    ? $instance['mc_total_amount']    : __( 'Total Amount', 'mc' );
+        $mc_down_payment     = isset( $instance['mc_down_payment'] )    ? $instance['mc_down_payment']    : __( 'Down Payment', 'mc' );
+        $mc_interest_rate    = isset( $instance['mc_interest_rate'] )   ? $instance['mc_interest_rate']   : __( 'Interest Rate', 'mc' );
+        $mc_mortgage_period  = isset( $instance['mc_mortgage_period'] ) ? $instance['mc_mortgage_period'] : __( 'Mortgage Period', 'mc' );
         ?>
         <p>
             <label for="<?php echo $this->get_field_id( 'title' ); ?>">
