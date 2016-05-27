@@ -106,8 +106,7 @@ class MC_Mortgage_Calculator extends WP_Widget {
                    id="<?php echo $this->get_field_id( 'title' ); ?>"
                    name="<?php echo $this->get_field_name( 'title' ); ?>"
                    type="text"
-                   value="<?php if(isset($title)){echo esc_attr( $title );} ?>"
-            />
+                   value="<?php if(isset($title)){echo esc_attr( $title );} ?>" />
         </p>
         <p>
             <label for="<?php echo $this->get_field_id( 'mc-total-amount' ); ?>">
@@ -117,8 +116,7 @@ class MC_Mortgage_Calculator extends WP_Widget {
                    id="<?php echo $this->get_field_id( 'mc-total-amount' ); ?>"
                    name="<?php echo $this->get_field_name( 'mc_total_amount' ); ?>"
                    type="text"
-                   value="<?php if(isset($mc_total_amount)){echo esc_attr( $mc_total_amount );} ?>"
-            />
+                   value="<?php if(isset($mc_total_amount)){echo esc_attr( $mc_total_amount );} ?>" />
         </p>
         <p>
             <label for="<?php echo $this->get_field_id( 'mc-down-payment' ); ?>">
@@ -128,8 +126,7 @@ class MC_Mortgage_Calculator extends WP_Widget {
                    id="<?php echo $this->get_field_id( 'mc-down-payment' ); ?>"
                    name="<?php echo $this->get_field_name( 'mc_down_payment' ); ?>"
                    type="text"
-                   value="<?php if(isset($mc_down_payment)){echo esc_attr( $mc_down_payment );} ?>"
-            />
+                   value="<?php if(isset($mc_down_payment)){echo esc_attr( $mc_down_payment );} ?>" />
         </p>
         <p>
             <label for="<?php echo $this->get_field_id( 'mc-interest-rate' ); ?>">
@@ -139,8 +136,7 @@ class MC_Mortgage_Calculator extends WP_Widget {
                    id="<?php echo $this->get_field_id( 'mc-interest-rate' ); ?>"
                    name="<?php echo $this->get_field_name( 'mc_interest_rate' ); ?>"
                    type="text"
-                   value="<?php if(isset($mc_interest_rate)){echo esc_attr( $mc_interest_rate );} ?>"
-            />
+                   value="<?php if(isset($mc_interest_rate)){echo esc_attr( $mc_interest_rate );} ?>" />
         </p>
         <p>
             <label for="<?php echo $this->get_field_id( 'mc-mortgage-period' ); ?>">
@@ -150,8 +146,7 @@ class MC_Mortgage_Calculator extends WP_Widget {
                    id="<?php echo $this->get_field_id( 'mc-mortgage-period' ); ?>"
                    name="<?php echo $this->get_field_name( 'mc_mortgage_period' ); ?>"
                    type="text"
-                   value="<?php if(isset($mc_mortgage_period)){echo esc_attr( $mc_mortgage_period );} ?>"
-            />
+                   value="<?php if(isset($mc_mortgage_period)){echo esc_attr( $mc_mortgage_period );} ?>" />
         </p>
         <?php
     }
