@@ -44,10 +44,11 @@ class MC_Mortgage_Calculator extends WP_Widget {
      */
     public function widget( $args, $instance ) {
         $title               = apply_filters( 'widget_title', $instance['title'] );
-        $mc_total_amount     = $instance['mc_total_amount'];
-        $mc_down_payment     = $instance['mc_down_payment'];
-        $mc_interest_rate    = $instance['mc_interest_rate'];
-        $mc_mortgage_period  = $instance['mc_mortgage_period'];
+
+        $mc_total_amount_label     = $instance['mc_total_amount'];
+        $mc_down_payment_label     = $instance['mc_down_payment'];
+        $mc_interest_rate_label    = $instance['mc_interest_rate'];
+        $mc_mortgage_period_label  = $instance['mc_mortgage_period'];
 
         // before and after widget arguments are defined by themes
         echo $args['before_widget'];
@@ -59,19 +60,19 @@ class MC_Mortgage_Calculator extends WP_Widget {
         <div class="mc-wrapper clearfx">
             <form id="mc-form" action="#mc-form">
                 <p>
-                    <label for="mc-total-amount"><?php echo $mc_total_amount; ?></label>
+                    <label for="mc-total-amount"><?php echo $mc_total_amount_label; ?></label>
                     <input type="number" name="mc_total_amount" id="mc-total-amount" min="1" class="required" placeholder="<?php _e( '$', 'mc' ); ?>"/>
                 </p>
                 <p>
-                    <label for="mc-down-payment"><?php echo $mc_down_payment; ?></label>
+                    <label for="mc-down-payment"><?php echo $mc_down_payment_label; ?></label>
                     <input type="number" name="mc_down_payment" id="mc-down-payment" min="1" class="required" placeholder="<?php _e( '$', 'mc' ); ?>">
                 </p>
                 <p>
-                    <label for="mc-interest-rate"><?php echo $mc_interest_rate; ?></label>
+                    <label for="mc-interest-rate"><?php echo $mc_interest_rate_label; ?></label>
                     <input type="number" name="mc_interest_rate" id="mc-interest-rate" min="1" class="required" placeholder="<?php _e( '%', 'mc' ); ?>">
                 </p>
                 <p>
-                    <label for="mc-mortgage-period"><?php echo $mc_mortgage_period; ?></label>
+                    <label for="mc-mortgage-period"><?php echo $mc_mortgage_period_label; ?></label>
                     <input type="number" name="mc_mortgage_period" id="mc-mortgage-period" class="required" placeholder="<?php _e( 'Years', 'mc' ); ?>">
                 </p>
                 <p>
