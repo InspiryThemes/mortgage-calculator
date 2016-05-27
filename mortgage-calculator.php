@@ -110,7 +110,7 @@ class MC_Mortgage_Calculator extends WP_Widget {
         </p>
         <p>
             <label for="<?php echo $this->get_field_id( 'mc-total-amount' ); ?>">
-                <?php echo __( 'Total Amount', 'mc' ) . ':'; ?>
+                <?php echo __( 'Total Amount Label', 'mc' ) . ':'; ?>
             </label>
             <input class="widefat"
                    id="<?php echo $this->get_field_id( 'mc-total-amount' ); ?>"
@@ -120,7 +120,7 @@ class MC_Mortgage_Calculator extends WP_Widget {
         </p>
         <p>
             <label for="<?php echo $this->get_field_id( 'mc-down-payment' ); ?>">
-                <?php echo __( 'Down Payment', 'mc' ) . ':'; ?>
+                <?php echo __( 'Down Payment Label', 'mc' ) . ':'; ?>
             </label>
             <input class="widefat"
                    id="<?php echo $this->get_field_id( 'mc-down-payment' ); ?>"
@@ -130,7 +130,7 @@ class MC_Mortgage_Calculator extends WP_Widget {
         </p>
         <p>
             <label for="<?php echo $this->get_field_id( 'mc-interest-rate' ); ?>">
-                <?php echo __( 'Interest Rate', 'mc' ) . ':'; ?>
+                <?php echo __( 'Interest Rate Label', 'mc' ) . ':'; ?>
             </label>
             <input class="widefat"
                    id="<?php echo $this->get_field_id( 'mc-interest-rate' ); ?>"
@@ -140,7 +140,7 @@ class MC_Mortgage_Calculator extends WP_Widget {
         </p>
         <p>
             <label for="<?php echo $this->get_field_id( 'mc-mortgage-period' ); ?>">
-                <?php echo __( 'Interest Rate', 'mc' ) . ':'; ?>
+                <?php echo __( 'Mortgage Period Label', 'mc' ) . ':'; ?>
             </label>
             <input class="widefat"
                    id="<?php echo $this->get_field_id( 'mc-mortgage-period' ); ?>"
