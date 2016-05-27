@@ -199,7 +199,7 @@ function mc_localization_strings(){
     $localization = array(
 
         'mc_output_string' => sprintf(
-            __( 'Mortgage: %1$s %6$s Years: %2$s %6$s Monthly payment: %3$s %6$s Total with interest: %4$s %6$s Total with down payment: %5$s', 'mc' ),
+            __( 'Principal Amount: %1$s %6$s Years: %2$s %6$s Monthly Payment: %3$s %6$s Balance Payable With Interest: %4$s %6$s Total Including Down Payment: %5$s', 'mc' ),
             '[mortgage_amount]',
             '[amortization_years]',
             '[mortgage_payment]',
