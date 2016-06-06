@@ -216,7 +216,7 @@ function mc_localization_strings(){
         'mc_currency_sign_position' => $options['mc_currency_sign_position_field'],
         'mc_thousand_separator'     => $options['mc_thousand_separator_field'],
         'mc_decimal_separator'      => $options['mc_decimal_separator_field'],
-        'mc_number_of_decimals'     => $options['mc_currency_sign_field']
+        'mc_number_of_decimals'     => $options['mc_number_of_decimals_field']
     );
     return $localization;
 }

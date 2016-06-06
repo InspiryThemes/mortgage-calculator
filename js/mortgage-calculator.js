@@ -3,36 +3,27 @@
     'use strict';
 
 
-     function number_format (number, decimals, decPoint, thousandsSep) {
-        number = (number + '').replace(/[^0-9+\-Ee.]/g, '');
-        var n = !isFinite(+number) ? 0 : +number;
+     function number_format ( number, decimals, decPoint, thousandsSep ) {
+        number = ( number + '' ).replace( /[^0-9+\-Ee.]/g, ' ');
+        var n = !isFinite( +number ) ? 0 : +number;
         var prec = !isFinite(+decimals) ? 0 : Math.abs(decimals);
-        var sep = (typeof thousandsSep === 'undefined') ? ',' : thousandsSep;
-        var dec = (typeof decPoint === 'undefined') ? '.' : decPoint;
+        var sep = ( typeof thousandsSep === 'undefined' ) ? ',' : thousandsSep;
+        var dec = ( typeof decPoint === 'undefined' ) ? '.' : decPoint;
         var s = '';
-
-        var toFixedFix = function (n, prec) {
+        var toFixedFix = function ( n, prec ) {
             var k = Math.pow(10, prec);
-            return '' + (Math.round(n * k) / k)
+            return '' + ( Math.round(n * k) / k )
                     .toFixed(prec)
         };
-        s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+        s = ( prec ? toFixedFix( n, prec ) : '' + Math.round(n) ).split('.');
         if (s[0].length > 3) {
-            s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep)
+            s[0] = s[0].replace( /\B(?=(?:\d{3})+( ?!\d ) )/g, sep)
         }
-        if ((s[1] || '').length < prec) {
+        if ( ( s[1] || '' ).length < prec ) {
             s[1] = s[1] || '';
-            s[1] += new Array(prec - s[1].length + 1).join('0')
+            s[1] += new Array( prec - s[1].length + 1 ).join('0')
         }
-
         return s.join(dec)
-    }
-
-    // Restrict output to 2 digits after point
-    function numberFormat(val, decimalPlaces) {
-
-        var multiplier = Math.pow(10, decimalPlaces);
-        return (Math.round(val * multiplier) / multiplier).toFixed(decimalPlaces);
     }
 
     //Main output Function
@@ -76,12 +67,48 @@
 
         //Currency sign
         var mcCurrencySign = mc_strings.mc_currency_sign;
-        principal= number_format( principal, mc_strings.mc_number_of_decimals, mc_strings.mc_decimal_separator, mc_strings.mc_thousand_separator );
-        outPutString = outPutString.replace( "[mortgage_amount]", mcCurrencySign+principal);
+
+        // Decimal numbers
+        var decimalNumbers = mc_strings.mc_number_of_decimals;
+
+        //Decimal Separator
+        var decimalSeparator = mc_strings.mc_decimal_separator;
+
+        //Thousand Separator
+        var thousandSeparator = mc_strings.mc_thousand_separator;
+
+        //Currency Sign Position
+        var currencySignPosition = mc_strings.mc_currency_sign_position;
+console.log(currencySignPosition);
+        //Formatting principal amount
+        principal= number_format( principal, decimalNumbers, decimalSeparator, thousandSeparator );
+
+        //Assigning currency sign position to principal
+        principal = (currencySignPosition == 1) ? mcCurrencySign+principal : principal+mcCurrencySign;
+
+        //Formatting monthly mortgage amount
+        monthlyMortgage= number_format( monthlyMortgage, decimalNumbers, decimalSeparator, thousandSeparator );
+
+        //Assigning currency sign position to monthly Mortgage
+        monthlyMortgage = (currencySignPosition == 1) ? mcCurrencySign+monthlyMortgage : monthlyMortgage+mcCurrencySign;
+
+        //Formatting monthly mortgage with interest amount
+        tmwi= number_format( tmwi, decimalNumbers, decimalSeparator, thousandSeparator );
+
+        //Assigning currency sign position to monthly mortgage with interest amount
+        tmwi = (currencySignPosition == 1) ? mcCurrencySign+tmwi : tmwi+mcCurrencySign;
+
+        //Formatting total mortgage with down payment
+        tmwdp= number_format( tmwdp, decimalNumbers, decimalSeparator, thousandSeparator );
+
+        //Assigning currency sign position to total mortgage with down payment
+        tmwdp = (currencySignPosition == 1) ? mcCurrencySign+tmwdp : tmwdp+mcCurrencySign;
+
+        outPutString = outPutString.replace( "[mortgage_amount]", principal);
         outPutString = outPutString.replace( "[amortization_years]", mcAmortizationPeriod );
-        outPutString = outPutString.replace( "[mortgage_payment]", mcCurrencySign + numberFormat( monthlyMortgage, 2 ) );
-        outPutString = outPutString.replace( "[total_mortgage_interest]", mcCurrencySign + numberFormat( tmwi, 2 ) );
-        outPutString = outPutString.replace( "[total_mortgage_down_payment]", mcCurrencySign + numberFormat( tmwdp, 2 ) );
+        outPutString = outPutString.replace( "[mortgage_payment]", monthlyMortgage );
+        outPutString = outPutString.replace( "[total_mortgage_interest]", tmwi );
+        outPutString = outPutString.replace( "[total_mortgage_down_payment]", tmwdp );
 
         //Displaying output div
         outputDiv.html( "<p>"+outPutString+"</p>").stop(true, true).slideDown();

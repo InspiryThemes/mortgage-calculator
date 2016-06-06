@@ -129,7 +129,7 @@ function mc_number_of_decimals_field_render() {
  * Call back Function
  */
 function mc_settings_section_callback() {
-	echo __( 'It provides an easy to use mortgage calculator widget.', 'mc' );
+	echo __( 'In this page you can control price format. ', 'mc' );
 
 }
 
