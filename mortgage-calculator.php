@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Mortgage Calculator
  * Plugin URI:      https://github.com/InspiryThemes/mortgage-calculator
- * Description:     It provides an easy to use mortgage calculator widget
+ * Description:     It provides an easy to use mortgage calculator widget.
  * Version:         1.0.0
  * Author:          Inspiry Themes
  * Author URI:      http://inspirythemes.com/
@@ -181,6 +181,11 @@ function mc_register_mortgage_calculator() {
 }
 add_action( 'widgets_init', 'mc_register_mortgage_calculator' );
 
+/**
+ * Including Settings Page
+ */
+include ("mc-settings.php");
+
 
 /**
  * Load plugin text domain.
@@ -195,7 +200,7 @@ add_action( 'plugins_loaded', 'mc_load_textdomain' );
  * Localize the script with new data
  */
 function mc_localization_strings(){
-
+    $options = get_option( 'mc_settings' );
     $localization = array(
 
         'mc_output_string' => sprintf(
@@ -206,7 +211,12 @@ function mc_localization_strings(){
             '[total_mortgage_interest]',
             '[total_mortgage_down_payment]',
             'LINEBREAK'
-        )
+        ),
+        'mc_currency_sign'          => $options['mc_currency_sign_field'],
+        'mc_currency_sign_position' => $options['mc_currency_sign_position_field'],
+        'mc_thousand_separator'     => $options['mc_thousand_separator_field'],
+        'mc_decimal_separator'      => $options['mc_decimal_separator_field'],
+        'mc_number_of_decimals'     => $options['mc_currency_sign_field']
     );
     return $localization;
 }
@@ -215,8 +225,8 @@ function mc_localization_strings(){
 /**
  * Load plugin Scripts
  */
-function mortgage_calculator_scripts()
-{
+function mortgage_calculator_scripts(){
+
     $mc_url = plugin_dir_url( __FILE__ );
 
     wp_enqueue_style( 'mortgage-calculator',
@@ -244,5 +254,3 @@ function mortgage_calculator_scripts()
     wp_localize_script( 'mortgage-calculator', 'mc_strings', $localization );
 }
 add_action( 'wp_enqueue_scripts', 'mortgage_calculator_scripts' );
-
-
