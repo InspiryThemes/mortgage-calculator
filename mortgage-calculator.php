@@ -182,11 +182,12 @@ function mc_register_mortgage_calculator() {
 add_action( 'widgets_init', 'mc_register_mortgage_calculator' );
 
 /**
- * Including Settings Page
+ * Including Settings Page and WordPress api wrapper
  */
-include ("mc-settings.php");
+require_once dirname( __FILE__ ) . '/class.settings-api.php';
+require_once dirname( __FILE__ ) .'/mc-settings.php';
 
-
+new MC_Mortgage_Calculator_Settings();
 /**
  * Load plugin text domain.
  */
@@ -197,10 +198,29 @@ add_action( 'plugins_loaded', 'mc_load_textdomain' );
 
 
 /**
+ * Get the value of a settings field
+ *
+ * @param string $option settings field name
+ * @param string $section the section name this field belongs to
+ * @param string $default default text if it's not found
+ * @return mixed
+ */
+function mc_get_option( $option, $section, $default = '' ) {
+
+    $options = get_option( $section );
+
+    if ( isset( $options[$option] ) ) {
+        return $options[$option];
+    }
+
+    return $default;
+}
+
+
+/**
  * Localize the script with new data
  */
 function mc_localization_strings(){
-    $options = get_option( 'mc_settings' );
     $localization = array(
 
         'mc_output_string' => sprintf(
@@ -212,11 +232,11 @@ function mc_localization_strings(){
             '[total_mortgage_down_payment]',
             'LINEBREAK'
         ),
-        'mc_currency_sign'          => $options['mc_currency_sign_field'],
-        'mc_currency_sign_position' => $options['mc_currency_sign_position_field'],
-        'mc_thousand_separator'     => $options['mc_thousand_separator_field'],
-        'mc_decimal_separator'      => $options['mc_decimal_separator_field'],
-        'mc_number_of_decimals'     => $options['mc_number_of_decimals_field']
+        'mc_currency_sign'          => mc_get_option( 'mc_currency_sign', 'mc_settings', '$' ),
+        'mc_currency_sign_position' => mc_get_option( 'mc_currency_sign_position', 'mc_settings', 'before' ),
+        'mc_thousand_separator'     => mc_get_option( 'mc_thousand_separator', 'mc_settings', ',' ),
+        'mc_decimal_separator'      => mc_get_option( 'mc_decimal_separator', 'mc_settings', '.' ),
+        'mc_number_of_decimals'     => mc_get_option( 'mc_number_of_decimals', 'mc_settings', '2' )
     );
     return $localization;
 }

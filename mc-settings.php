@@ -1,150 +1,127 @@
 <?php
-add_action( 'admin_menu', 'mc_add_admin_menu' );
-add_action( 'admin_init', 'mc_settings_init' );
 
 /**
- * Creating menu in admin side under tools menu.
+ * WordPress settings API demo class
  */
-function mc_add_admin_menu() {
+if ( !class_exists('MC_Mortgage_Calculator_Settings' ) ):
+	class MC_Mortgage_Calculator_Settings {
 
-	add_submenu_page( 'tools.php', 'Mortgage Calculator', 'Mortgage Calculator', 'manage_options', 'mortgage_calculator', 'mc_options_page' );
+		private $settings_api;
 
-}
+		function __construct() {
+			$this->settings_api = new WeDevs_Settings_API;
 
-/**
- * Creating Setting fields
- */
-function mc_settings_init() {
+			add_action( 'admin_init', array($this, 'admin_init') );
+			add_action( 'admin_menu', array($this, 'admin_menu') );
+		}
 
-	register_setting( 'mc_setting_page', 'mc_settings' );
+		function admin_init() {
 
-	add_settings_section(
-		'mc_setting_page_section',
-		__( 'Mortgage Calculator Setting Page', 'mc' ),
-		'mc_settings_section_callback',
-		'mc_setting_page'
-	);
+			//set the settings
+			$this->settings_api->set_sections( $this->get_settings_sections() );
+			$this->settings_api->set_fields( $this->get_settings_fields() );
 
-	add_settings_field(
-		'mc_currency_sign_field',
-		__( 'Currency Sign', 'mc' ),
-		'mc_currency_sign_field_render',
-		'mc_setting_page',
-		'mc_setting_page_section'
-	);
+			//initialize settings
+			$this->settings_api->admin_init();
+		}
 
-	add_settings_field(
-		'mc_currency_sign_position_field',
-		__( 'Currency Sign Position', 'mc' ),
-		'mc_currency_sign_position_field_render',
-		'mc_setting_page',
-		'mc_setting_page_section'
-	);
+		function admin_menu() {
+			add_options_page( 'Mortgage Calculator', 'Mortgage Calculator', 'delete_posts', 'mc_setting_page', array($this, 'mc_setting_page') );
+		}
 
-	add_settings_field(
-		'mc_thousand_separator_field',
-		__( 'Thousand Separator', 'mc' ),
-		'mc_thousand_separator_field_render',
-		'mc_setting_page',
-		'mc_setting_page_section'
-	);
+		function get_settings_sections() {
+			$sections = array(
+				array(
+					'id' => 'mc_settings',
+					'title' => __( 'Mortgage Calculator', 'mc' ),
+					'desc' => 'You can modify price format to match your needs by using below options.'
+				)
+			);
+			return $sections;
+		}
 
-	add_settings_field(
-		'mc_decimal_separator_field',
-		__( 'Decimal Separator', 'mc' ),
-		'mc_decimal_separator_field_render',
-		'mc_setting_page',
-		'mc_setting_page_section'
-	);
+		/**
+		 * Returns all the settings fields
+		 *
+		 * @return array settings fields
+		 */
+		function get_settings_fields() {
+			$settings_fields = array(
+				'mc_settings' => array(
+					array(
+						'name'              => 'mc_currency_sign',
+						'label'             => __( 'Currency Sign', 'mc' ),
+						'desc'              => __( 'Default: $', 'mc' ),
+						'type'              => 'text',
+						'default'           => '$',
+						'sanitize_callback' => ''
+					),
+					array(
+						'name'    => 'mc_currency_sign_position',
+						'label'   => __( 'Currency Sign Position', 'mc' ),
+						'desc'    => __( 'Default: Before', 'mc' ),
+						'type'    => 'select',
+						'default' => 'Before',
+						'options' => array(
+							'before' => 'Before',
+							'after'  => 'After'
+						)
+					),
+					array(
+						'name'              => 'mc_thousand_separator',
+						'label'             => __( 'Thousand Separator', 'mc' ),
+						'desc'              => __( 'Default: ,', 'mc' ),
+						'type'              => 'text',
+						'default'           => ',',
+						'sanitize_callback' => ''
+					),
+					array(
+						'name'              => 'mc_decimal_separator',
+						'label'             => __( 'Decimal Separator', 'mc' ),
+						'desc'              => __( 'Default: .', 'mc' ),
+						'type'              => 'text',
+						'default'           => '.',
+						'sanitize_callback' => ''
+					),
+					array(
+						'name'              => 'mc_number_of_decimals',
+						'label'             => __( 'Number of decimals', 'mc' ),
+						'desc'              => __( 'Default: 2', 'mc' ),
+						'type'              => 'text',
+						'default'           => '2',
+						'sanitize_callback' => 'intval'
+					)
+				)
+			);
 
-	add_settings_field(
-		'mc_number_of_decimals_field',
-		__( 'Number of Decimals', 'mc' ),
-		'mc_number_of_decimals_field_render',
-		'mc_setting_page',
-		'mc_setting_page_section'
-	);
+			return $settings_fields;
+		}
 
-}
+		function mc_setting_page() {
+			echo '<div class="wrap">';
 
-/**
- * Getting Currency Sign
- */
-function mc_currency_sign_field_render() {
-	$options = get_option( 'mc_settings' );
-	?>
-	<input type='text' name='mc_settings[mc_currency_sign_field]' value='<?php echo sanitize_text_field( $options[ 'mc_currency_sign_field' ] ); ?>'>
-	<?php
+			//$this->settings_api->show_navigation();
+			$this->settings_api->show_forms();
 
-}
+			echo '</div>';
+		}
 
-/**
- * Getting Currency Sign position
- */
-function mc_currency_sign_position_field_render() {
-	$options = get_option( 'mc_settings' );
-	?>
-	<select name='mc_settings[mc_currency_sign_position_field]'>
-		<option value='1' <?php selected( $options['mc_currency_sign_position_field'], 1 ); ?>><?php _e( 'Before', 'mc' ); ?></option>
-		<option value='2' <?php selected( $options['mc_currency_sign_position_field'], 2 ); ?>><?php _e( 'After', 'mc' ); ?></option>
-	</select>
-	<?php
+		/**
+		 * Get all the pages
+		 *
+		 * @return array page names with key value pairs
+		 */
+		function get_pages() {
+			$pages = get_pages();
+			$pages_options = array();
+			if ( $pages ) {
+				foreach ($pages as $page) {
+					$pages_options[$page->ID] = $page->post_title;
+				}
+			}
 
-}
+			return $pages_options;
+		}
 
-/**
- * Getting Thousand separator
- */
-function mc_thousand_separator_field_render() {
-	$options = get_option( 'mc_settings' );
-	?>
-	<input type='text' name='mc_settings[mc_thousand_separator_field]' value='<?php echo sanitize_text_field( $options[ 'mc_thousand_separator_field' ] ); ?>'>
-	<?php
-
-}
-
-/**
- * Getting Decimal Separator
- */
-function mc_decimal_separator_field_render() {
-	$options = get_option( 'mc_settings' );
-	?>
-	<input type='text' name='mc_settings[mc_decimal_separator_field]' value='<?php echo sanitize_text_field( $options[ 'mc_decimal_separator_field' ] ); ?>'>
-	<?php
-
-}
-
-/**
- * Getting number of decimal
- */
-function mc_number_of_decimals_field_render() {
-	$options = get_option( 'mc_settings' );
-	?>
-	<input type='text' name='mc_settings[mc_number_of_decimals_field]' value='<?php echo sanitize_text_field( $options[ 'mc_number_of_decimals_field' ] ); ?>'>
-	<?php
-
-}
-
-/**
- * Call back Function
- */
-function mc_settings_section_callback() {
-	echo __( 'In this page you can control price format. ', 'mc' );
-
-}
-
-/**
- * Gathering all options and creating a form
- */
-function mc_options_page() {
-	echo "<form action='options.php' method='post'>" ;
-
-	settings_fields( 'mc_setting_page' );
-	do_settings_sections( 'mc_setting_page' );
-	submit_button();
-
-	echo "</form>" ;
-
-}
-
-?>
+	}
+endif;

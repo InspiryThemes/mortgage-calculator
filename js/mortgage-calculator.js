@@ -23,6 +23,7 @@
             s[1] = s[1] || '';
             s[1] += new Array( prec - s[1].length + 1 ).join('0')
         }
+
         return s.join(dec)
     }
 
@@ -79,30 +80,30 @@
 
         //Currency Sign Position
         var currencySignPosition = mc_strings.mc_currency_sign_position;
-console.log(currencySignPosition);
+
         //Formatting principal amount
         principal= number_format( principal, decimalNumbers, decimalSeparator, thousandSeparator );
 
         //Assigning currency sign position to principal
-        principal = (currencySignPosition == 1) ? mcCurrencySign+principal : principal+mcCurrencySign;
+        principal = (currencySignPosition == 'before') ? mcCurrencySign+principal : principal+mcCurrencySign;
 
         //Formatting monthly mortgage amount
         monthlyMortgage= number_format( monthlyMortgage, decimalNumbers, decimalSeparator, thousandSeparator );
 
         //Assigning currency sign position to monthly Mortgage
-        monthlyMortgage = (currencySignPosition == 1) ? mcCurrencySign+monthlyMortgage : monthlyMortgage+mcCurrencySign;
+        monthlyMortgage = (currencySignPosition == 'before') ? mcCurrencySign+monthlyMortgage : monthlyMortgage+mcCurrencySign;
 
         //Formatting monthly mortgage with interest amount
         tmwi= number_format( tmwi, decimalNumbers, decimalSeparator, thousandSeparator );
 
         //Assigning currency sign position to monthly mortgage with interest amount
-        tmwi = (currencySignPosition == 1) ? mcCurrencySign+tmwi : tmwi+mcCurrencySign;
+        tmwi = (currencySignPosition == 'before') ? mcCurrencySign+tmwi : tmwi+mcCurrencySign;
 
         //Formatting total mortgage with down payment
         tmwdp= number_format( tmwdp, decimalNumbers, decimalSeparator, thousandSeparator );
 
         //Assigning currency sign position to total mortgage with down payment
-        tmwdp = (currencySignPosition == 1) ? mcCurrencySign+tmwdp : tmwdp+mcCurrencySign;
+        tmwdp = (currencySignPosition == 'before') ? mcCurrencySign+tmwdp : tmwdp+mcCurrencySign;
 
         outPutString = outPutString.replace( "[mortgage_amount]", principal);
         outPutString = outPutString.replace( "[amortization_years]", mcAmortizationPeriod );
