@@ -1,7 +1,7 @@
 <?php
 
 /**
- * WordPress settings API demo class
+ * WordPress settings API class
  */
 if ( !class_exists('MC_Mortgage_Calculator_Settings' ) ):
 	class MC_Mortgage_Calculator_Settings {
