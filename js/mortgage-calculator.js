@@ -4,8 +4,7 @@
 
 
     function number_format (number, decimals, decPoint, thousandsSep) {
-
-
+        
         number = (number + '').replace(/[^0-9+\-Ee.]/g, '')
         var n = !isFinite(+number) ? 0 : +number
         var prec = !isFinite(+decimals) ? 0 : Math.abs(decimals)
@@ -30,6 +29,8 @@
 
         return s.join(dec)
     }
+    
+    
     //Main output Function
     function mcOutputFunc(){
 

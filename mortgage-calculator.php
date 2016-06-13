@@ -181,6 +181,7 @@ function mc_register_mortgage_calculator() {
 }
 add_action( 'widgets_init', 'mc_register_mortgage_calculator' );
 
+
 /**
  * Including Settings Page and WordPress api wrapper
  */
@@ -188,6 +189,8 @@ require_once dirname( __FILE__ ) . '/class.settings-api.php';
 require_once dirname( __FILE__ ) .'/mc-settings.php';
 
 new MC_Mortgage_Calculator_Settings();
+
+
 /**
  * Load plugin text domain.
  */

@@ -26,7 +26,7 @@ if ( !class_exists('MC_Mortgage_Calculator_Settings' ) ):
 		}
 
 		function admin_menu() {
-			add_options_page( 'Mortgage Calculator', 'Mortgage Calculator', 'delete_posts', 'mc_setting_page', array($this, 'mc_setting_page') );
+			add_options_page( __('Mortgage Calculator', 'mc'), __('Mortgage Calculator', 'mc'), 'delete_posts', 'mc_setting_page', array($this, 'mc_setting_page') );
 		}
 
 		function get_settings_sections() {
@@ -34,7 +34,7 @@ if ( !class_exists('MC_Mortgage_Calculator_Settings' ) ):
 				array(
 					'id' => 'mc_settings',
 					'title' => __( 'Mortgage Calculator', 'mc' ),
-					'desc' => 'You can modify price format to match your needs by using below options.'
+					'desc' =>  __('You can modify price format to match your needs by using below options.', 'mc')
 				)
 			);
 			return $sections;
@@ -63,8 +63,8 @@ if ( !class_exists('MC_Mortgage_Calculator_Settings' ) ):
 						'type'    => 'select',
 						'default' => 'Before',
 						'options' => array(
-							'before' => 'Before',
-							'after'  => 'After'
+							'before' => 'Before($5000)',
+							'after'  => 'After(5000$)'
 						)
 					),
 					array(
