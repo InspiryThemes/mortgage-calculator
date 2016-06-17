@@ -61,7 +61,7 @@ class MC_Mortgage_Calculator extends WP_Widget {
             <form id="mc-form" action="#mc-form">
                 <p>
                     <label for="mc-total-amount"><?php echo $mc_total_amount_label; ?></label>
-                    <input type="number" name="mc_total_amount_label" id="mc-total-amount" min="1" class="required" placeholder="<?php echo mc_get_option( 'mc_currency_sign', 'mc_settings', '$' ); ?>"/>
+                    <input type="number" name="mc_total_amount_label" id="mc-total-amount" min="1" class="required" placeholder="<?php echo mc_get_option( 'mc_currency_sign', 'mc_settings', '$' ); ?>" value="<?php echo apply_filters( 'mc_total_amount', null ); ?>"/>
                 </p>
                 <p>
                     <label for="mc-down-payment"><?php echo $mc_down_payment_label; ?></label>
