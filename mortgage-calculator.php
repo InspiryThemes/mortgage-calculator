@@ -60,19 +60,19 @@ class MC_Mortgage_Calculator extends WP_Widget {
         <div class="mc-wrapper clearfx">
             <form id="mc-form" action="#mc-form">
                 <p>
-                    <label for="mc-total-amount"><?php echo $mc_total_amount_label; ?></label>
+                    <label for="mc-total-amount"><?php _e( $mc_total_amount_label, 'mc' ); ?></label>
                     <input type="number" name="mc_total_amount_label" id="mc-total-amount" min="1" class="required" placeholder="<?php echo mc_get_option( 'mc_currency_sign', 'mc_settings', '$' ); ?>" value="<?php echo apply_filters( 'mc_total_amount', null ); ?>"/>
                 </p>
                 <p>
-                    <label for="mc-down-payment"><?php echo $mc_down_payment_label; ?></label>
+                    <label for="mc-down-payment"><?php _e( $mc_down_payment_label, 'mc' ); ?></label>
                     <input type="number" name="mc_down_payment_label" id="mc-down-payment" min="1" class="required" placeholder="<?php echo mc_get_option( 'mc_currency_sign', 'mc_settings', '$' ); ?>">
                 </p>
                 <p>
-                    <label for="mc-interest-rate"><?php echo $mc_interest_rate_label; ?></label>
+                    <label for="mc-interest-rate"><?php _e( $mc_interest_rate_label, 'mc' ); ?></label>
                     <input type="number" name="mc_interest_rate_label" id="mc-interest-rate" min="1" class="required" placeholder="<?php _e( '%', 'mc' ); ?>">
                 </p>
                 <p>
-                    <label for="mc-mortgage-period"><?php echo $mc_mortgage_period_label; ?></label>
+                    <label for="mc-mortgage-period"><?php _e( $mc_mortgage_period_label, 'mc' ); ?></label>
                     <input type="number" name="mc_mortgage_period_label" id="mc-mortgage-period" class="required" placeholder="<?php _e( 'Years', 'mc' ); ?>">
                 </p>
                 <p>
