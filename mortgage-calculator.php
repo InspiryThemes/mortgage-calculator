@@ -43,12 +43,14 @@ class MC_Mortgage_Calculator extends WP_Widget {
      * @param array $instance
      */
     public function widget( $args, $instance ) {
-        $title               = apply_filters( 'widget_title', $instance['title'] );
 
-        $mc_total_amount_label     = $instance['mc_total_amount_label'];
-        $mc_down_payment_label     = $instance['mc_down_payment_label'];
-        $mc_interest_rate_label    = $instance['mc_interest_rate_label'];
-        $mc_mortgage_period_label  = $instance['mc_mortgage_period_label'];
+        $title  = ( isset( $instance['title'] ) && ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Monthly Mortgage Payments', 'mc' );
+        $title  = apply_filters( 'widget_title', $title );
+
+        $mc_total_amount_label      = ( isset( $instance['mc_total_amount_label'] ) && ! empty( $instance['mc_total_amount_label'] ) )          ? $instance['mc_total_amount_label']    : __( 'Total Amount', 'mc' );
+        $mc_down_payment_label      = ( isset( $instance['mc_down_payment_label'] ) && ! empty( $instance['mc_down_payment_label'] ) )          ? $instance['mc_down_payment_label']    : __( 'Down Payment', 'mc' );
+        $mc_interest_rate_label     = ( isset( $instance['mc_interest_rate_label'] ) && ! empty( $instance['mc_interest_rate_label'] ) )        ? $instance['mc_interest_rate_label']   : __( 'Interest Rate', 'mc' );
+        $mc_mortgage_period_label   = ( isset( $instance['mc_mortgage_period_label'] ) && ! empty( $instance['mc_mortgage_period_label'] ) )    ? $instance['mc_mortgage_period_label'] : __( 'Mortgage Period', 'mc' );
 
         // before and after widget arguments are defined by themes
         echo $args['before_widget'];
