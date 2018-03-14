@@ -62,23 +62,23 @@ class MC_Mortgage_Calculator extends WP_Widget {
         <div class="mc-wrapper clearfx">
             <form id="mc-form" action="#mc-form">
                 <p>
-                    <label for="mc-total-amount"><?php echo $mc_total_amount_label; ?></label>
+                    <label for="mc-total-amount"><?php echo esc_html( $mc_total_amount_label ); ?></label>
                     <input type="number" name="mc_total_amount_label" id="mc-total-amount" min="1" class="required" placeholder="<?php echo mc_get_option( 'mc_currency_sign', 'mc_settings', '$' ); ?>" value="<?php echo apply_filters( 'mc_total_amount', null ); ?>"/>
                 </p>
                 <p>
-                    <label for="mc-down-payment"><?php echo $mc_down_payment_label; ?></label>
+                    <label for="mc-down-payment"><?php echo esc_html( $mc_down_payment_label ); ?></label>
                     <input type="number" name="mc_down_payment_label" id="mc-down-payment" min="1" class="required" placeholder="<?php echo mc_get_option( 'mc_currency_sign', 'mc_settings', '$' ); ?>">
                 </p>
                 <p>
-                    <label for="mc-interest-rate"><?php echo $mc_interest_rate_label; ?></label>
+                    <label for="mc-interest-rate"><?php echo esc_html( $mc_interest_rate_label ); ?></label>
                     <input type="number" name="mc_interest_rate_label" id="mc-interest-rate" min="1" class="required" placeholder="<?php _e( '%', 'mc' ); ?>">
                 </p>
                 <p>
-                    <label for="mc-mortgage-period"><?php echo $mc_mortgage_period_label; ?></label>
+                    <label for="mc-mortgage-period"><?php echo esc_html( $mc_mortgage_period_label ); ?></label>
                     <input type="number" name="mc_mortgage_period_label" id="mc-mortgage-period" class="required" placeholder="<?php _e( 'Years', 'mc' ); ?>">
                 </p>
                 <p>
-                    <input type="submit" id="mc-submit" value="<?php _e( 'Calculate Mortgage', 'mc' ); ?>">
+                    <input type="submit" id="mc-submit" value="<?php esc_html_e( 'Calculate Mortgage', 'mc' ); ?>">
                 </p>
             </form>
 
@@ -101,52 +101,52 @@ class MC_Mortgage_Calculator extends WP_Widget {
         $mc_mortgage_period_label  = isset( $instance['mc_mortgage_period_label'] ) ? $instance['mc_mortgage_period_label'] : __( 'Mortgage Period', 'mc' );
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id( 'title' ); ?>">
-                <?php echo __( 'Title', 'mc' ) . ':'; ?>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>">
+                <?php echo esc_html__( 'Title', 'mc' ) . ':'; ?>
             </label>
             <input class="widefat"
-                   id="<?php echo $this->get_field_id( 'title' ); ?>"
-                   name="<?php echo $this->get_field_name( 'title' ); ?>"
+                   id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
+                   name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
                    type="text"
                    value="<?php if(isset($title)){echo esc_attr( $title );} ?>" />
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'mc-total-amount' ); ?>">
-                <?php echo __( 'Total Amount Label', 'mc' ) . ':'; ?>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'mc-total-amount' ) ); ?>">
+                <?php echo esc_html__( 'Total Amount Label', 'mc' ) . ':'; ?>
             </label>
             <input class="widefat"
-                   id="<?php echo $this->get_field_id( 'mc-total-amount' ); ?>"
-                   name="<?php echo $this->get_field_name( 'mc_total_amount_label' ); ?>"
+                   id="<?php echo esc_attr( $this->get_field_id( 'mc-total-amount' ) ); ?>"
+                   name="<?php echo esc_attr( $this->get_field_name( 'mc_total_amount_label' ) ); ?>"
                    type="text"
                    value="<?php if(isset($mc_total_amount_label)){echo esc_attr( $mc_total_amount_label );} ?>" />
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'mc-down-payment' ); ?>">
-                <?php echo __( 'Down Payment Label', 'mc' ) . ':'; ?>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'mc-down-payment' ) ); ?>">
+                <?php echo esc_html__( 'Down Payment Label', 'mc' ) . ':'; ?>
             </label>
             <input class="widefat"
-                   id="<?php echo $this->get_field_id( 'mc-down-payment' ); ?>"
-                   name="<?php echo $this->get_field_name( 'mc_down_payment_label' ); ?>"
+                   id="<?php echo esc_attr( $this->get_field_id( 'mc-down-payment' ) ); ?>"
+                   name="<?php echo esc_attr( $this->get_field_name( 'mc_down_payment_label' ) ); ?>"
                    type="text"
                    value="<?php if(isset($mc_down_payment_label)){echo esc_attr( $mc_down_payment_label );} ?>" />
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'mc-interest-rate' ); ?>">
-                <?php echo __( 'Interest Rate Label', 'mc' ) . ':'; ?>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'mc-interest-rate' ) ); ?>">
+                <?php echo esc_html__( 'Interest Rate Label', 'mc' ) . ':'; ?>
             </label>
             <input class="widefat"
-                   id="<?php echo $this->get_field_id( 'mc-interest-rate' ); ?>"
-                   name="<?php echo $this->get_field_name( 'mc_interest_rate_label' ); ?>"
+                   id="<?php echo esc_attr( $this->get_field_id( 'mc-interest-rate' ) ); ?>"
+                   name="<?php echo esc_attr( $this->get_field_name( 'mc_interest_rate_label' ) ); ?>"
                    type="text"
                    value="<?php if(isset($mc_interest_rate_label)){echo esc_attr( $mc_interest_rate_label );} ?>" />
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'mc-mortgage-period' ); ?>">
-                <?php echo __( 'Mortgage Period Label', 'mc' ) . ':'; ?>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'mc-mortgage-period' ) ); ?>">
+                <?php echo esc_html__( 'Mortgage Period Label', 'mc' ) . ':'; ?>
             </label>
             <input class="widefat"
-                   id="<?php echo $this->get_field_id( 'mc-mortgage-period' ); ?>"
-                   name="<?php echo $this->get_field_name( 'mc_mortgage_period_label' ); ?>"
+                   id="<?php echo esc_attr( $this->get_field_id( 'mc-mortgage-period' ) ); ?>"
+                   name="<?php echo esc_attr( $this->get_field_name( 'mc_mortgage_period_label' ) ); ?>"
                    type="text"
                    value="<?php if(isset($mc_mortgage_period_label)){echo esc_attr( $mc_mortgage_period_label );} ?>" />
         </p>
