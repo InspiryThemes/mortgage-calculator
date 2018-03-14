@@ -197,9 +197,9 @@ new MC_Mortgage_Calculator_Settings();
  * Load plugin text domain.
  */
 function mc_load_textdomain() {
-    load_plugin_textdomain( 'mc', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
+    load_plugin_textdomain( 'mc', false, plugin_basename( plugin_dir_path( __FILE__ ) ) . '/languages/' );
 }
-add_action( 'plugins_loaded', 'mc_load_textdomain' );
+add_action( 'init', 'mc_load_textdomain' );
 
 
 /**
