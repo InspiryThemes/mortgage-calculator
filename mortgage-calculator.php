@@ -71,11 +71,11 @@ class MC_Mortgage_Calculator extends WP_Widget {
                 </p>
                 <p>
                     <label for="mc-interest-rate"><?php echo esc_html( $mc_interest_rate_label ); ?></label>
-                    <input type="number" name="mc_interest_rate_label" id="mc-interest-rate" min="1" class="required" placeholder="<?php _e( '%', 'mc' ); ?>">
+                    <input type="number" name="mc_interest_rate_label" id="mc-interest-rate" min="1" class="required" placeholder="<?php esc_html_e( '%', 'mc' ); ?>">
                 </p>
                 <p>
                     <label for="mc-mortgage-period"><?php echo esc_html( $mc_mortgage_period_label ); ?></label>
-                    <input type="number" name="mc_mortgage_period_label" id="mc-mortgage-period" class="required" placeholder="<?php _e( 'Years', 'mc' ); ?>">
+                    <input type="number" name="mc_mortgage_period_label" id="mc-mortgage-period" class="required" placeholder="<?php esc_html_e( 'Years', 'mc' ); ?>">
                 </p>
                 <p>
                     <input type="submit" id="mc-submit" value="<?php esc_html_e( 'Calculate Mortgage', 'mc' ); ?>">
