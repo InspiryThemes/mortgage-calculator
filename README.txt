@@ -1,9 +1,9 @@
 === Mortgage Calculator ===
-Contributors: saqibsarwar
+Contributors: inspirythemes, saqibsarwar
 Tags: loan, mortgage, mortgage calculator, real estate, realtor, responsive, widget, calculator, loan calculator
 Requires at least: 4.5
-Tested up to: 4.5.2
-Stable tag: 1.0.0
+Tested up to: 4.9.4
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,5 +32,10 @@ This plugin is also translation ready and you can translate it to your language 
 1. Visit widgets section to use the widget
 
 == Changelog ==
+
+= 1.0.1 =
+* Improved escaping
+* Improved translation support
+
 = 1.0.0 =
 * Initial Release
