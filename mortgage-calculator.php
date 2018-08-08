@@ -246,6 +246,19 @@ function mc_localization_strings(){
     return $localization;
 }
 
+/**
+ * Localize the script for validation
+ */
+function mc_validate_localization_strings() {
+    $localization = array(
+
+        'mc_field_required' => esc_html__( 'This field is required.', 'mc' ),
+        'mc_valid_number'   => esc_html__( 'Please enter a valid number.', 'mc' )
+    );
+
+    return $localization;
+}
+
 
 /**
  * Load plugin Scripts
@@ -273,6 +286,9 @@ function mortgage_calculator_scripts(){
         MORTGAGE_CALCULATOR_VERSION,
         true
     );
+
+    $validation_locals = mc_validate_localization_strings();
+    wp_localize_script( 'mortgage-calculator-validator', 'mc_validate_strings', $validation_locals );
 
     //Localizing Scripts
     $localization = mc_localization_strings();
