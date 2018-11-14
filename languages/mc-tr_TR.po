@@ -1,0 +1,163 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mortgage Calculator\n"
+"POT-Creation-Date: 2018-11-14 12:51+0500\n"
+"PO-Revision-Date: 2018-11-14 12:51+0500\n"
+"Last-Translator: M Saqib Sarwar <saqib@inspirythemes.com>\n"
+"Language-Team: M Saqib Sarwar <saqib@inspirythemes.com>\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: mortgage-calculator.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: class.settings-api.php:349
+msgid "Choose File"
+msgstr "Dosya Seçin"
+
+#. Plugin Name of the plugin/theme
+#: mc-settings.php:29 mc-settings.php:36 mortgage-calculator.php:34
+msgid "Mortgage Calculator"
+msgstr "Kredi Hesaplama"
+
+#: mc-settings.php:37
+msgid "You can modify price format to match your needs by using below options."
+msgstr ""
+"Aşağıdaki seçenekleri kullanarak ihtiyaçlarınızı karşılayacak fiyat "
+"formatını değiştirebilirsiniz."
+
+#: mc-settings.php:53
+msgid "Currency Sign"
+msgstr "Para Birimi İşareti"
+
+#: mc-settings.php:54
+msgid "Default: $"
+msgstr "Varsayılan : $"
+
+#: mc-settings.php:61
+msgid "Currency Sign Position"
+msgstr "Para Birimi İşaret Konumu"
+
+#: mc-settings.php:62
+msgid "Default: Before"
+msgstr "Varsayılan: Önce"
+
+#: mc-settings.php:72
+msgid "Thousand Separator"
+msgstr "Bin Ayırıcı"
+
+#: mc-settings.php:73
+msgid "Default: ,"
+msgstr "Varsayılan: ,"
+
+#: mc-settings.php:80
+msgid "Decimal Separator"
+msgstr "Ondalık Ayırıcı"
+
+#: mc-settings.php:81
+msgid "Default: ."
+msgstr "Varsayılan: ."
+
+#: mc-settings.php:88
+msgid "Number of decimals"
+msgstr "Ondalık sayı"
+
+#: mc-settings.php:89
+msgid "Default: 2"
+msgstr "Varsayılan: 2"
+
+#. Description of the plugin/theme
+#: mortgage-calculator.php:35
+msgid "It provides an easy to use mortgage calculator widget."
+msgstr "Bu kredi hesap widgeti kullanımı kolay bir platformdur."
+
+#: mortgage-calculator.php:47 mortgage-calculator.php:97
+msgid "Monthly Mortgage Payments"
+msgstr "Aylık kredi Ödemeleri"
+
+#: mortgage-calculator.php:50 mortgage-calculator.php:98
+msgid "Total Amount"
+msgstr "Toplam Tutar"
+
+#: mortgage-calculator.php:51 mortgage-calculator.php:99
+msgid "Down Payment"
+msgstr "Peşinat"
+
+#: mortgage-calculator.php:52 mortgage-calculator.php:100
+msgid "Interest Rate"
+msgstr "Faiz oranı"
+
+#: mortgage-calculator.php:53 mortgage-calculator.php:101
+msgid "Mortgage Period"
+msgstr "Vade ( YIL )"
+
+#: mortgage-calculator.php:74
+msgid "%"
+msgstr "%"
+
+#: mortgage-calculator.php:78
+msgid "Years"
+msgstr "Yıl"
+
+#: mortgage-calculator.php:81
+msgid "Calculate Mortgage"
+msgstr "Kredi Hesapla"
+
+#: mortgage-calculator.php:105
+msgid "Title"
+msgstr "Başlık"
+
+#: mortgage-calculator.php:115
+msgid "Total Amount Label"
+msgstr "Toplam Tutar Etiketi"
+
+#: mortgage-calculator.php:125
+msgid "Down Payment Label"
+msgstr "Peşinat Etiketi"
+
+#: mortgage-calculator.php:135
+msgid "Interest Rate Label"
+msgstr "Faiz Oranı Etiketi"
+
+#: mortgage-calculator.php:145
+msgid "Mortgage Period Label"
+msgstr "Kredi Dönemi Etiketi"
+
+#: mortgage-calculator.php:232
+#, php-format
+msgid ""
+"Principal Amount: %1$s %6$s Years: %2$s %6$s Monthly Payment: %3$s %6$s "
+"Balance Payable With Interest: %4$s %6$s Total With Down Payment: %5$s"
+msgstr ""
+"Anapara tutarı: %1$s %6$s Yıllar: %2$s %6$s Aylık ödeme: %3$s %6$s Faiz ile "
+"Ödenecek Tutar: %4$s %6$s Peşinatlı Toplam: %5$s"
+
+#: mortgage-calculator.php:255
+msgid "This field is required."
+msgstr "Bu alan gereklidir."
+
+#: mortgage-calculator.php:256
+msgid "Please enter a valid number."
+msgstr "Lütfen geçerli bir numara girin."
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/InspiryThemes/mortgage-calculator"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Inspiry Themes"
+msgstr "Meander Multimedya"
+
+#. Author URI of the plugin/theme
+msgid "https://inspirythemes.com/"
+msgstr ""
