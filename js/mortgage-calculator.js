@@ -49,17 +49,25 @@
         //Getting mortgage period value from user
         var mcAmortizationPeriod = parseFloat( $("#mc-mortgage-period").val() );
 
-        //Calculating r by this formula ( (InterestRate/100)/12 )
-        var r = ( ( mcInterestRate / 100 ) / 12 );
-
         //Calculating principal amount by subtracting down payment from total amount
         var principal = mcTotalAmount - mcDownPayment;
 
-        // Power calculating by this formula Math.pow(base, exponent)
-        var power = Math.pow( ( 1 + r ), ( mcAmortizationPeriod * 12 ) );
+        if ( 0 !== mcInterestRate ){
 
-        // Calculating total mortgage
-        var monthlyMortgage =  principal * ( ( r * power ) / ( power - 1 ) );
+            //Calculating r by this formula ( (InterestRate/100)/12 )
+            var r = ((mcInterestRate / 100) / 12);
+
+            // Power calculating by this formula Math.pow(base, exponent)
+            var power = Math.pow((1 + r), (mcAmortizationPeriod * 12));
+
+            // Calculating total mortgage
+            var monthlyMortgage = principal * ((r * power) / (power - 1));
+            
+        } else {
+
+            var monthlyMortgage = principal / ( mcAmortizationPeriod * 12 );
+        }
+       
 
         //Total mortgage with interest
         var tmwi = monthlyMortgage * mcAmortizationPeriod * 12;
