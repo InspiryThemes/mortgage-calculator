@@ -2,8 +2,8 @@
 Contributors: inspirythemes, saqibsarwar
 Tags: loan, mortgage, mortgage calculator, real estate, realtor, responsive, widget, calculator, loan calculator
 Requires at least: 4.6
-Tested up to: 5.2.2
-Stable tag: 1.0.3
+Tested up to: 5.3.2
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,12 @@ This plugin is also translation ready and you can translate it to your language 
 1. Visit widgets section to use the widget
 
 == Changelog ==
+
+= 1.1.0 =
+* Mortgage output string options added
+* Calculation with zero down payment enabled
+* Calculation with zero interest enabled
+* Tested with WordPress 5.3.2
 
 = 1.0.3 =
 * Tested with WordPress 5.2.2
