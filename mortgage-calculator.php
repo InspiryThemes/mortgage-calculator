@@ -3,7 +3,7 @@
  * Plugin Name:     Mortgage Calculator
  * Plugin URI:      https://github.com/InspiryThemes/mortgage-calculator
  * Description:     It provides an easy to use mortgage calculator widget.
- * Version:         1.1.2
+ * Version:         1.1.3
  * Author:          Inspiry Themes
  * Author URI:      https://inspirythemes.com/
  * License:         GPL-2.0+
@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || die;
 /**
  * The current version of the Plugin.
  */
-define( 'MORTGAGE_CALCULATOR_VERSION', '1.1.2' );
+define( 'MORTGAGE_CALCULATOR_VERSION', '1.1.3' );
 
 
 class MC_Mortgage_Calculator extends WP_Widget {
