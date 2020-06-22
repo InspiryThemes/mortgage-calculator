@@ -1,5 +1,5 @@
 === Mortgage Calculator ===
-Contributors: inspirythemes, saqibsarwar, sungraizfaryad
+Contributors: inspirythemes, saqibsarwar, sungraizfaryad, fahidjavid
 Tags: loan, mortgage, mortgage calculator, real estate, realtor, responsive, widget, calculator, loan calculator
 Requires at least: 4.6
 Tested up to: 5.4
