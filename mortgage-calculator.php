@@ -312,24 +312,27 @@ function mortgage_calculator_scripts() {
 		'screen'
 	);
 
-	wp_enqueue_script(
-		'mortgage-calculator-validator',
-		$mc_url . 'js/jquery.validate.min.js',
-		array( 'jquery' ),
-		MORTGAGE_CALCULATOR_VERSION,
-		true
-	);
+	// Enqueue the form validate JS file if it is not enqueued by the RealHomes theme.
+	if ( ! wp_script_is( 'jqvalidate' ) ) {
+		wp_enqueue_script(
+			'jqvalidate',
+			$mc_url . 'js/jquery.validate.min.js',
+			array( 'jquery' ),
+			MORTGAGE_CALCULATOR_VERSION,
+			true
+		);
+	}
 
 	wp_enqueue_script(
 		'mortgage-calculator',
 		$mc_url . 'js/mortgage-calculator.js',
-		array( 'jquery', 'mortgage-calculator-validator' ),
+		array( 'jquery', 'jqvalidate' ),
 		MORTGAGE_CALCULATOR_VERSION,
 		true
 	);
 
 	$validation_locals = mc_validate_localization_strings();
-	wp_localize_script( 'mortgage-calculator-validator', 'mc_validate_strings', $validation_locals );
+	wp_localize_script( 'jqvalidate', 'mc_validate_strings', $validation_locals );
 
 	// Localizing Scripts
 	$localization = mc_localization_strings();
