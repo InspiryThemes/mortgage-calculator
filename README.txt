@@ -2,7 +2,7 @@
 Contributors: inspirythemes, saqibsarwar, sungraizfaryad, fahidjavid
 Tags: loan, mortgage, mortgage calculator, real estate, realtor, responsive, widget, calculator, loan calculator
 Requires at least: 4.6
-Tested up to: 5.4.2
+Tested up to: 5.5
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -32,6 +32,9 @@ This plugin is also translation ready and you can translate it to your language 
 1. Visit widgets section to use the widget
 
 == Changelog ==
+
+= 1.1.3 =
+* Tested with WordPress 5.5
 
 = 1.1.2 =
 * Tested with WordPress 5.4
