@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Mortgage Calculator\n"
-"POT-Creation-Date: 2020-03-19 12:34+0500\n"
-"PO-Revision-Date: 2020-03-19 12:33+0500\n"
+"POT-Creation-Date: 2021-01-21 23:58+0500\n"
+"PO-Revision-Date: 2021-01-21 23:58+0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -196,13 +196,10 @@ msgid "Please enter a valid number."
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://github.com/InspiryThemes/mortgage-calculator"
+#. Author URI of the plugin/theme
+msgid "https://www.mlcalc.com/"
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Inspiry Themes"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "https://inspirythemes.com/"
+msgid "Arseniy Olevskiy"
 msgstr ""

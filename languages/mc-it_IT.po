@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Mortgage Calculator\n"
-"POT-Creation-Date: 2020-03-19 12:36+0500\n"
-"PO-Revision-Date: 2020-03-19 12:37+0500\n"
+"POT-Creation-Date: 2021-01-21 23:58+0500\n"
+"PO-Revision-Date: 2021-01-22 00:00+0500\n"
 "Last-Translator: M Saqib Sarwar <saqib@inspirythemes.com>\n"
 "Language-Team: M Saqib Sarwar <saqib@inspirythemes.com>\n"
 "Language: it_IT\n"
@@ -89,7 +89,6 @@ msgid "Default: 2"
 msgstr "Predefinito: 2"
 
 #: mc-settings.php:103 mortgage-calculator.php:251
-#| msgid "Total Amount"
 msgid "Principal Amount:"
 msgstr ""
 
@@ -98,22 +97,18 @@ msgid "Default: Principal Amount"
 msgstr ""
 
 #: mc-settings.php:111 mortgage-calculator.php:252
-#| msgid "Years"
 msgid "Years:"
 msgstr ""
 
 #: mc-settings.php:112
-#| msgid "Default: Before"
 msgid "Default: Years:"
 msgstr ""
 
 #: mc-settings.php:119 mortgage-calculator.php:253
-#| msgid "Monthly Mortgage Payments"
 msgid "Monthly Payment:"
 msgstr "Rata mensile:"
 
 #: mc-settings.php:120
-#| msgid "Monthly Mortgage Payments"
 msgid "Default: Monthly Payment:"
 msgstr ""
 
@@ -126,7 +121,6 @@ msgid "Default: Balance Payable With Interest:"
 msgstr ""
 
 #: mc-settings.php:135 mortgage-calculator.php:255
-#| msgid "Down Payment"
 msgid "Total With Down Payment:"
 msgstr ""
 
@@ -172,7 +166,6 @@ msgid "Calculate Mortgage"
 msgstr "Calcola mutuo"
 
 #: mortgage-calculator.php:100
-#| msgid "Monthly Mortgage Payments"
 msgid "Mortgage Payments"
 msgstr ""
 
@@ -205,16 +198,19 @@ msgid "Please enter a valid number."
 msgstr "Inserisci un numero valido."
 
 #. Plugin URI of the plugin/theme
-msgid "https://github.com/InspiryThemes/mortgage-calculator"
+#. Author URI of the plugin/theme
+msgid "https://www.mlcalc.com/"
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Inspiry Themes"
-msgstr "Inspiry Themes"
+msgid "Arseniy Olevskiy"
+msgstr ""
 
-#. Author URI of the plugin/theme
-msgid "https://inspirythemes.com/"
-msgstr "https://inspirythemes.com/"
+#~ msgid "Inspiry Themes"
+#~ msgstr "Inspiry Themes"
+
+#~ msgid "https://inspirythemes.com/"
+#~ msgstr "https://inspirythemes.com/"
 
 #, php-format
 #~ msgid ""

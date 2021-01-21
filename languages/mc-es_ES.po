@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Mortgage Calculator\n"
-"POT-Creation-Date: 2020-03-19 12:38+0500\n"
-"PO-Revision-Date: 2020-03-19 12:39+0500\n"
+"POT-Creation-Date: 2021-01-21 23:58+0500\n"
+"PO-Revision-Date: 2021-01-21 23:59+0500\n"
 "Last-Translator: M Saqib Sarwar <saqib@inspirythemes.com>\n"
 "Language-Team: M Saqib Sarwar <saqib@inspirythemes.com>\n"
 "Language: es_ES\n"
@@ -114,15 +114,15 @@ msgstr ""
 
 #: mc-settings.php:127 mortgage-calculator.php:254
 msgid "Balance Payable With Interest:"
-msgstr ""
+msgstr "Saldo a pagar, con intereses:"
 
 #: mc-settings.php:128
 msgid "Default: Balance Payable With Interest:"
-msgstr ""
+msgstr "Predeterminado: Saldo a pagar con intereses:"
 
 #: mc-settings.php:135 mortgage-calculator.php:255
 msgid "Total With Down Payment:"
-msgstr ""
+msgstr "Total, con pago inicial:"
 
 #: mc-settings.php:136
 msgid "Default: Total With Down Payment:"
@@ -198,16 +198,19 @@ msgid "Please enter a valid number."
 msgstr "Por favor escribe un número válido."
 
 #. Plugin URI of the plugin/theme
-msgid "https://github.com/InspiryThemes/mortgage-calculator"
+#. Author URI of the plugin/theme
+msgid "https://www.mlcalc.com/"
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Inspiry Themes"
-msgstr "Inspiry Themes"
+msgid "Arseniy Olevskiy"
+msgstr ""
 
-#. Author URI of the plugin/theme
-msgid "https://inspirythemes.com/"
-msgstr "https://inspirythemes.com/"
+#~ msgid "Inspiry Themes"
+#~ msgstr "Inspiry Themes"
+
+#~ msgid "https://inspirythemes.com/"
+#~ msgstr "https://inspirythemes.com/"
 
 #, php-format
 #~ msgid ""
