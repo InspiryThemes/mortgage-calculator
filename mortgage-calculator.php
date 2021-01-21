@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:     Mortgage Calculator
- * Plugin URI:      https://github.com/InspiryThemes/mortgage-calculator
+ * Plugin URI:      https://www.mlcalc.com/
  * Description:     It provides an easy to use mortgage calculator widget.
  * Version:         1.1.4
- * Author:          Inspiry Themes
- * Author URI:      https://inspirythemes.com/
+ * Author:          Arseniy Olevskiy
+ * Author URI:      https://www.mlcalc.com/
  * License:         GPL-2.0+
  * License URI:     http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:     mc
